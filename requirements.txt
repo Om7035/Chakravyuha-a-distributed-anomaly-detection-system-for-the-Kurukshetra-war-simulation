@@ -1,0 +1,11 @@
+simpy
+confluent-kafka
+pytorch-forecasting
+pytorch-lightning
+torch
+pandas
+fastapi
+uvicorn
+feast
+redis
+scikit-learn
