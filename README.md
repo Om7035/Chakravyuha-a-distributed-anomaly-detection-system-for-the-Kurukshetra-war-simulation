@@ -13,7 +13,12 @@ A distributed, production-grade anomaly detection system that monitors a battlef
 - [Project Structure](#project-structure)
 - [Key Features](#key-features)
 - [Performance](#performance)
+- [API Reference](#api-reference)
+- [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
+- [How It Works](#how-it-works)
 
 ---
 
@@ -399,6 +404,34 @@ This project is for educational purposes. Feel free to use it in your portfolio.
 - **PyTorch Forecasting**: Temporal Fusion Transformer
 - **Feast**: Feature store framework
 - **FastAPI**: Modern web framework
+
+---
+
+## How It Works
+
+### Concept Overview
+
+Chakravyuha is a real-time anomaly detection system designed to monitor a simulated battlefield with 100 soldiers. It uses machine learning to identify unusual patterns in soldiers' vital signs, such as heart rate and stamina, to detect potential anomalies.
+
+### Anomaly Detection Process
+
+1. **Data Generation**: SimPy generates events for 100 soldiers, each with heart rate and stamina metrics.
+   - Soldiers' heart rates fluctuate normally between 60-100 BPM.
+   - Occasionally, a soldier's heart rate spikes to 180-200 BPM, simulating a "poisoning" event.
+
+2. **Event Streaming**: These events are streamed in real-time using Apache Kafka, which acts as a message queue.
+
+3. **Feature Engineering**: Redis stores recent data and calculates trends, such as average heart rate and stamina levels.
+
+4. **Machine Learning Model**: The Temporal Fusion Transformer (TFT) model predicts expected heart rate values based on historical data.
+
+5. **Anomaly Detection**:
+   - The model compares actual heart rate with predicted values.
+   - If the difference exceeds a certain threshold, it triggers an alert, indicating a potential anomaly.
+
+6. **API Response**: FastAPI serves the results, providing a status of "BREACH" for anomalies or "SECURE" for normal conditions.
+
+This process allows for real-time monitoring and alerting, making Chakravyuha a robust solution for anomaly detection in dynamic environments.
 
 ---
 
