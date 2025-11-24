@@ -8,11 +8,16 @@ __pycache__/
 venv/
 ENV/
 env/
+pip-log.txt
+pip-delete-this-directory.txt
 
-# PyTorch
+# PyTorch & ML
 *.pth
 *.ckpt
 lightning_logs/
+*.pt
+*.pkl
+*.pickle
 
 # Terraform
 .terraform/
@@ -25,15 +30,39 @@ lightning_logs/
 .idea/
 *.swp
 *.swo
+*.sublime-project
+*.sublime-workspace
 
 # OS
 .DS_Store
 Thumbs.db
+.AppleDouble
+.LSOverride
 
 # Project specific
 bin/
 serving/model_path.txt
 test_sim.py
+*.log
 
 # Kubernetes
 *.kubeconfig
+kubeconfig
+
+# Documentation (keep only README)
+ABOUT_WARNING.md
+FINAL_STATUS.md
+INDEX.md
+PROJECT_COMPLETE.md
+QUICKSTART.md
+STATUS.md
+WORKLOG.md
+ARCHITECTURE.md
+
+# Deployment scripts (optional - can be included)
+# deploy_*.ps1
+# fix_*.ps1
+# run_*.ps1
+# start_*.ps1
+# test_*.ps1
+# verify_*.ps1
